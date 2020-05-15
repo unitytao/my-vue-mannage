@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/view/
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydatabase?useUnicode=true&characterEncoding=UTF-8
+    username: mydatabase
+    password: 123456
+mybatis:
+  mapper-locations: classpath:com/liaolei/mapper/*.xml   #扫描静态资源文件夹下这个包下的所有后缀为xml的文件
+  type-aliases-package: com.liaolei.entity  #设置别名
+server:
+  port: 8989

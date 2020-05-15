@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liaolei.mapper.UserMapper">
+    <insert id="addAdmin" parameterType="TAdmin">
+        insert into t_admin(account,password) values (#{account},#{password});
+    </insert>
+    <insert id="addUser" parameterType="TUser">
+        insert into t_user(userName,gender,birthday,idCard,departmentId,positionId,isTest,isFired,createTime,reviseTime)
+         values (#{userName},#{gender},#{birthday},#{idCard},#{departmentId},#{positionId},1,0,now(),now());
+    </insert>
+    <select id="findByNameAndPwd" resultType="TAdmin">
+        select * from t_admin where account=#{account} and password=#{password};
+    </select>
+    <select id="findById" resultType="TUser">
+        select * from t_user where Id=#{id};
+    </select>
+    <select id="findByName" resultType="TUser">
+        select * from t_user where userName=#{name};
+    </select>
+    <select id="findByDepId" resultType="TUser">
+        select * from t_user where departmentId=#{depId};
+    </select>
+    <select id="findAll" resultType="TUser">
+        select * from t_user;
+    </select>
+    <update id="updateDepartAndPosition">
+        update t_user set departmentId=#{depId},positionId=#{ptnId},reviseTime=now() where Id=#{userId};
+    </update>
+    <update id="updatePosition">
+        update t_user set positionId=#{ptnId},reviseTime=now() where Id=#{userId};
+    </update>
+    <update id="setTestOver">
+        update t_user set isTest=0 where Id=#{id};
+    </update>
+    <update id="setFired">
+        update t_user set isFired=1 where Id=#{id};
+    </update>
+</mapper>

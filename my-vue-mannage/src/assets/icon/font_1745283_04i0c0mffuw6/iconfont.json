@@ -1,0 +1,23 @@
+{
+  "id": "1745283",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1016749",
+      "name": "密码",
+      "font_class": "lock",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "12704986",
+      "name": "用户名",
+      "font_class": "yonghuming",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}

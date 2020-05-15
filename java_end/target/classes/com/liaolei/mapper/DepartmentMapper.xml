@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liaolei.mapper.DepartmentMapper">
+    <select id="findAll" resultType="Department">
+        select * from t_department;
+    </select>
+    <select id="findDepartmentByName" resultType="Department">
+        select * from t_department where bmName=#{bmName};
+    </select>
+    <select id="findDepartmentById" resultType="Department">
+        select * from t_department where Id=#{id};
+    </select>
+    <delete id="deleteById">
+        delete from t_department where Id=#{id};
+    </delete>
+    <delete id="deletePositionByDepId">
+        delete from t_position where departmentId=#{id};
+    </delete>
+    <insert id="addDepartment">
+        insert into t_department(bmName,superiorId,createTime,reviseTime) values (#{bmName},#{superiorId},now(),now());
+    </insert>
+    <update id="updateDepartment">
+        update t_department set bmName=#{bmName},superiorId=#{superiorId},reviseTime=now() where Id=#{id};
+    </update>
+</mapper>
